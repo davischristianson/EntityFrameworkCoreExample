@@ -14,7 +14,7 @@ namespace EntityFrameworkCoreExample
     {
         public StudentContext()
         {
-                
+            
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
@@ -24,5 +24,8 @@ namespace EntityFrameworkCoreExample
             // Trusted_Connection = Indicates that our windows account should be used
             options.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=EFCoreExample;Trusted_Connection=True;");
         }
+
+        // Tell EF Core to track Students in the database
+        public DbSet<Student> Students { get; set; }
     }
 }
